@@ -1,0 +1,10 @@
+*.pyc
+env/
+.env
+dist/
+.sass-cache/
+*.db
+.coverage*
+htmlcov
+.noseids
+venv/*
