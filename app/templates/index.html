@@ -31,7 +31,7 @@
 
         <div class="container" ng-view></div>
 
-        <script src="{% url 'wafflejs' %}"></script>
+        <!-- <script src="{% url 'wafflejs' %}"></script> -->
         {% compress js %}
         <script type="text/javascript" src="/static/vendor/jquery-1.9.1.min.js"></script>
         <script type="text/javascript" src="/static/vendor/angular.js"></script>
@@ -39,7 +39,8 @@
         <script type="text/javascript" src="/static/controllers/main.js"></script>
         <script type="text/javascript" src="/static/controllers/login.js"></script>
         <script type="text/javascript" src="/static/controllers/register.js"></script>
-
+        <script type="text/javascript" src="/static/vendor/angular-file-upload/dist/angular-file-upload.min.js"></script>
+ 
         <script type="text/javascript" src="/static/vendor/bootstrap/bootstrap-dropdown.js"></script>
 
         <!-- we have modified the js-compressor to support ng templates -->

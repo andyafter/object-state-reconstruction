@@ -7,11 +7,12 @@ Setup
 ```
 git clone
 gem install foreman
+npm install ng-waffle --save
 virtualenv env
 . env/bin/activate
 pip install -r requirements.txt
 ```
-You should install openssl first if you are using Mac OS X.
+You should install openssl first if you are using Mac OS X. 
 
 Also you will need to create a .env file containing the following
 ```

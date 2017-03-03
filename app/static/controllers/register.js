@@ -1,17 +1,6 @@
 'use strict';
 
 
-if (waffle.switch_is_active('Registration')) {
-    // enable the route
-    App.config(['$routeProvider', function($routeProvider) {
-        $routeProvider
-          .when('/register', {
-            templateUrl: '/static/views/register.html',
-            controller: 'RegistrationCtrl'
-          });
-    }]);
-}
-
 App.controller('RegistrationCtrl', function($scope, $http, $location, $rootScope) {
   $scope.register = function() {
     $scope.error = false;

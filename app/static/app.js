@@ -1,12 +1,13 @@
 'use strict';
 
-var App = angular.module('App', [])
-  .config(['$routeProvider', '$locationProvider', function($routeProvider) {
-    $routeProvider
-      .otherwise({
-        redirectTo: '/'
-      });
-  }]);
+var App = angular.module('App',
+                         ['angularFileUpload'])
+        .config(['$routeProvider', '$locationProvider', function($routeProvider) {
+            $routeProvider
+                .otherwise({
+                    redirectTo: '/'
+                });
+        }]);
 
 App.directive('activeLink', ['$location', function(location) {
     return {
@@ -27,12 +28,3 @@ App.directive('activeLink', ['$location', function(location) {
     };
 }]);
 
-App.directive('waffleSwitch', function() {
-    return {
-        replace: true,
-        restrict: 'A',
-        link: function(scope, element, attr){
-            element.css('display', waffle.switch_is_active(attr.waffleSwitch) ? '' : 'none');
-        }
-    };
-});
