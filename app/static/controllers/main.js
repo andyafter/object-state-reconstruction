@@ -18,5 +18,7 @@ App.controller('MainCtrl', ['$scope', 'FileUploader', function($scope, FileUploa
         'django-compressor'
     ];
 
-    $scope.uploader = new FileUploader();
+    $scope.uploader = new FileUploader({
+        url:{upload},
+    });
 }]);

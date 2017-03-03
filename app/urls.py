@@ -17,6 +17,8 @@ admin.autodiscover()
 # Import the API
 from app import api
 
+from .views import *
+
 
 class JSONResponse(HttpResponse):
     """
@@ -102,6 +104,7 @@ urlpatterns = patterns('',
     url(r'^logout/?', vlogout, name='logout'),
     url(r'^register/?', register, name='register'),
 
+    url(r'^upload/?', upload_file, name='upload'),
     # enable waffle urls
     (r'^', include('waffle.urls')),
 
