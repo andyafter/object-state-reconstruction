@@ -19,6 +19,10 @@ App.controller('MainCtrl', ['$scope', 'FileUploader', function($scope, FileUploa
     ];
 
     $scope.uploader = new FileUploader({
-        url:{upload},
+        url:"upload/"
     });
+
+    $scope.uploader.onSuccessItem = function(fileItem, response, status, headers){
+        console.info('onCompleteItem', fileItem, response, status, headers);
+    };
 }]);
