@@ -6,7 +6,6 @@ from django.conf import settings
 from django.dispatch import receiver
 
 
-@python_2_unicode_compatible
 class Table(Model):
     object_id = models.CharField(max_length=256, blank=True)
     object_type = models.CharField(max_length=256, blank=True)

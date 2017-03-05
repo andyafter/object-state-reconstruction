@@ -105,6 +105,7 @@ urlpatterns = patterns('',
     url(r'^register/?', register, name='register'),
 
     url(r'^upload/?', upload_file, name='upload'),
+    url(r'^query/?', query_object, name='query'),
     # enable waffle urls
     (r'^', include('waffle.urls')),
 
