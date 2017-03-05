@@ -1,6 +1,6 @@
-django-angular-seed
+Object State Reconstruction
 ===================
-This is a "clone and go" seed for django ,angular, and django-rest-framework.
+Object state reconstruction with django ,angular, and django-rest-framework.
 
 Setup
 -----
