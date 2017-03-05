@@ -155,7 +155,7 @@ INSTALLED_APPS = (
     'waffle',
     'rest_framework',
     'rest_framework.authtoken',  # Rest Framework API Token authentication
-    'compressor',
+    #'compressor',
     'app'
 )
 

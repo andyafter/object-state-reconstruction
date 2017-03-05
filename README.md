@@ -12,7 +12,7 @@ virtualenv env
 . env/bin/activate
 pip install -r requirements.txt
 ```
-You should install openssl first if you are using Mac OS X. 
+You should install openssl first if you are using Mac OS X(For cryptography). 
 
 Also you will need to create a .env file containing the following
 ```
