@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from .forms import UploadFileForm
+from .models.table import *
 
 import sys, csv
 import codecs
@@ -26,7 +27,15 @@ def upload_file(request):
                     key, item = obj.split(':')
                     info_obj[key] = item
                     last_obj = key
-                print >>sys.stderr, info_obj
+                    
+                info_str = ""
+                for key in info_obj:
+                    info_str += key
+                    info_str += ":"
+                    info_str += info_obj[key]
+                    info_str += "--"
+                #info_str.strip("-")
+                print >>sys.stderr, info_str.strip("-").split("--")
             return HttpResponse('SUCCESS')
     else:
         form = UploadFileForm()

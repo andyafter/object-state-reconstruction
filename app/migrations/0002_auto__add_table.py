@@ -8,21 +8,31 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'UserProfile'
-        db.create_table(u'app_userprofile', (
+        # Adding model 'Table'
+        db.create_table(u'app_table', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'], unique=True)),
-            ('confirmed_email', self.gf('django.db.models.fields.BooleanField')(default=False)),
+            ('object_id', self.gf('django.db.models.fields.CharField')(max_length=256, blank=True)),
+            ('object_type', self.gf('django.db.models.fields.CharField')(max_length=256, blank=True)),
+            ('timestamp', self.gf('django.db.models.fields.CharField')(max_length=256, blank=True)),
+            ('info', self.gf('django.db.models.fields.TextField')(blank=True)),
         ))
-        db.send_create_signal('app', ['UserProfile'])
+        db.send_create_signal('app', ['Table'])
 
 
     def backwards(self, orm):
-        # Deleting model 'UserProfile'
-        db.delete_table(u'app_userprofile')
+        # Deleting model 'Table'
+        db.delete_table(u'app_table')
 
 
     models = {
+        'app.table': {
+            'Meta': {'object_name': 'Table'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'info': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
+            'object_id': ('django.db.models.fields.CharField', [], {'max_length': '256', 'blank': 'True'}),
+            'object_type': ('django.db.models.fields.CharField', [], {'max_length': '256', 'blank': 'True'}),
+            'timestamp': ('django.db.models.fields.CharField', [], {'max_length': '256', 'blank': 'True'})
+        },
         'app.userprofile': {
             'Meta': {'object_name': 'UserProfile'},
             'confirmed_email': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
