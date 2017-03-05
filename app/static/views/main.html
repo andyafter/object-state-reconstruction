@@ -8,6 +8,13 @@
             </li>
         </ul>
 
-        <button ng-click="query()"> Quest</button>
+        <input type="text" ng-model="objectId"> Object Id </input>
+        <input type="text" ng-model="timeStamp"> TimeStamp </input>
+        <button class="btn btn-primary"
+                ng-click="query()"> Query</button>
+        <ul>
+            <li>{{output}}</li>
+        </ul>
+        
     </div>
 </div>

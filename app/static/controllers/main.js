@@ -32,8 +32,8 @@ App.controller('MainCtrl', ['$scope' , 'FileUploader', '$http', function($scope,
         var data = $.param({
             //fName: $scope.firstName,
             //lName: $scope.lastName
-            object_id:1,
-            timestamp: 148473055
+            object_id:$scope.objectId,
+            timestamp: $scope.timeStamp
         });
         
         var config = {
@@ -47,10 +47,13 @@ App.controller('MainCtrl', ['$scope' , 'FileUploader', '$http', function($scope,
                 //$scope.PostDataResponse = data;
                 if(data=="none"){
                     console.log("herehere");
+                    $scope.output = "Object Didn't Exist at that time.";
+                    return;
                 }
                 console.log(data);
-                console.log(data.info);
+                console.log(data.info.split("--"));
                 console.log(data.object_id);
+                $scope.output = data.info.split("--").join(" ");
             })
             .error(function (data, status, header, config) {
                 console.log("something went wrong");
