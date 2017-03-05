@@ -8,7 +8,7 @@ App.config(['$routeProvider', function($routeProvider) {
         });
 }]);
 
-App.controller('MainCtrl', ['$scope', 'FileUploader', function($scope, FileUploader) {
+App.controller('MainCtrl', ['$scope' , 'FileUploader', '$http', function($scope, FileUploader, $http) {
     $scope.awesomeThings = [
         'HTML5 Boilerplate',
         'AngularJS',
@@ -26,4 +26,34 @@ App.controller('MainCtrl', ['$scope', 'FileUploader', function($scope, FileUploa
         console.info('onCompleteItem', fileItem, response, status, headers);
         //$scope.uoloader.clearQueue();
     };
+
+    $scope.query = function(){
+        console.log("some");
+        var data = $.param({
+            //fName: $scope.firstName,
+            //lName: $scope.lastName
+            object_id:1,
+            timestamp: 148473055
+        });
+        
+        var config = {
+            headers : {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        };
+
+        $http.post('/query', data, config)
+            .success(function (data, status, headers, config) {
+                //$scope.PostDataResponse = data;
+                if(data=="none"){
+                    console.log("herehere");
+                }
+                console.log(data);
+                console.log(data.info);
+                console.log(data.object_id);
+            })
+            .error(function (data, status, header, config) {
+                console.log("something went wrong");
+            });
+    }
 }]);

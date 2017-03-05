@@ -55,7 +55,11 @@ def upload_file(request):
 
 
 def query_object(request):
-    obj = Table.objects.get(object_id=request.POST["object_id"], timestamp=request.POST["timestamp"])
+    obj = {}
+    try:
+        obj = Table.objects.get(object_id=request.POST["object_id"], timestamp=request.POST["timestamp"])
+    except Table.DoesNotExist:
+        return HttpResponse("none")
     result = {}
     result["object_id"] = obj.object_id
     result["object_type"] = obj.object_type
